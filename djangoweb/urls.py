@@ -23,8 +23,7 @@ from . import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('myapp/', include('myapp.urls')),
-    path('', RedirectView.as_view(url='myapp/')),
+    path('', include('myapp.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
