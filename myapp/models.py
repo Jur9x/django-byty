@@ -36,6 +36,28 @@ class Najemnik(models.Model):
             return self.osoba
 
 class Nemovitost(models.Model):
+    BYT = "BYT"
+    DUM = "DŮM"
+    TYP_CHOICES = [
+        (BYT, "byt"),
+        (DUM, "dům"),
+    ]
+    VELIKOST1 = "1"
+    VELIKOST2 = "1+1"
+    VELIKOST3 = "2"
+    VELIKOST4 = "2+1"
+    VELIKOST5 = "3"
+    VELIKOST6 = "3+1"
+    VELIKOST_CHOICES = [
+        (VELIKOST1, "1"),
+        (VELIKOST2, "1+1"),
+        (VELIKOST3, "2"),
+        (VELIKOST4, "2+1"),
+        (VELIKOST5, "3"),
+        (VELIKOST6, "3+1"),
+    ]
+    typ = models.CharField(max_length=45, choices=TYP_CHOICES, default=BYT, verbose_name="Typ", help_text="Vyberte typ nemovitosti")
+    velikost = models.CharField(max_length=45, choices=VELIKOST_CHOICES, default=VELIKOST1, verbose_name="Velikost", help_text="Vyberte velikost nemovitosti")
     majitel = models.ForeignKey('Majitel', on_delete=models.CASCADE, verbose_name='Osoba', help_text='Vyberte majitele', default=0)
     mesto = models.CharField(max_length=45, verbose_name="Město", help_text="Zadejte jméno města")
     ulice = models.CharField(max_length=45, verbose_name="Ulice", help_text="Zadejte jméno ulice")

@@ -1,16 +1,18 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 
-from .models import Nemovitost
+from .models import Nemovitost, Osoba
 
-
-class BytListView(ListView):
+class NemovitostList(ListView):
     model = Nemovitost
-    context_object_name = 'byty_list'
+    context_object_name = 'nemovitost_list'
     template_name = 'index.html'
-
-
-class BytDetailView(DetailView):
+class NemovitostDetailView(DetailView):
     model = Nemovitost
-    context_object_name = 'byt_detail'
-    template_name = 'byt.html'
+    context_object_name = 'nemovitost_detail'
+    template_name = 'detailn.html'
+
+class OsobaDetailView(DetailView):
+    model = Osoba
+    context_object_name = 'osoba_detail'
+    template_name = 'detailn.html'

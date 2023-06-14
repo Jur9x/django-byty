@@ -1,13 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-Jur9x Real Estate
-Osoby
-Byty
-2 velke obrazky vedle sebe, 1 na kazde tema
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+    <br>
+ <div class="text-center row justify-content-center" style="max-width: 100%">
+        {% for nemovitost in nemovitost_list %}
+         <div class="img-with-text text-center col-sm-4 mar">
+        <a href="{% url 'detailn' nemovitost.pk %}"><img class="rounded" src="{{ nemovitost.fotka.url }}"
+                            style="width:500px;height: 350px;object-fit: cover"
+                            alt="{{ nemovitost.typ }} {{ nemovitost.velikost}}"></a>
+             <p class="text-center"><a style="text-decoration: none" href="{% url 'detailn' nemovitost.pk %}"><span>{{ nemovitost.typ }}, {{ nemovitost.mesto }}, {{ nemovitost.ulice }}</span></a></p>
+            </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
