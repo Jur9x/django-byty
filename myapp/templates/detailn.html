@@ -1,4 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
-<p style="color: #006b1b">ahoj DETAIL</p>
+    <br>
+    <div style="max-width: 100%; margin: 0;" class="row justify-content-center text-center">
+    <div class="col-2"></div>
+    <div class="col-5"><img class="rounded" src="{{  nemovitost_detail.fotka.url }}" style="width:500px;height: 350px;object-fit: cover"
+                            alt="{{ nemovitost.typ }} {{ nemovitost.velikost}}" ></div>
+    <div style="text-align: left" class="col-3">
+        <p>Typ nemovitosti: {{ nemovitost_detail.typ }}</p>
+        <p>Velikost nemovitosti: {{ nemovitost_detail.velikost }}</p>
+        <p>Majitel: <a style="text-decoration: none" href="{% url 'detailo' nemovitost_detail.majitel.osoba.pk %}">{{ nemovitost_detail.majitel.osoba }}</a></p>
+        <p>Město: {{ nemovitost_detail.mesto }}</p>
+        <p>Ulice: {{ nemovitost_detail.ulice }}</p>
+        <p>Cena: {{ nemovitost_detail.cena }} Kč/měsíc</p>
+    </div>
+    <div class="col-2"></div>
+    </div>
 {% endblock %}

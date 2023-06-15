@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
 
-from .models import Nemovitost, Osoba
+from .models import Nemovitost, Osoba, Najem
 
 class NemovitostList(ListView):
     model = Nemovitost
@@ -15,4 +15,4 @@ class NemovitostDetailView(DetailView):
 class OsobaDetailView(DetailView):
     model = Osoba
     context_object_name = 'osoba_detail'
-    template_name = 'detailn.html'
+    template_name = 'detailo.html'

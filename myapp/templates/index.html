@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
     <br>
- <div class="text-center row justify-content-center" style="max-width: 100%">
+ <div class="text-center row justify-content-center" style="max-width: 100%;">
         {% for nemovitost in nemovitost_list %}
          <div class="img-with-text text-center col-sm-4 mar">
         <a href="{% url 'detailn' nemovitost.pk %}"><img class="rounded" src="{{ nemovitost.fotka.url }}"

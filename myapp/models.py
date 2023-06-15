@@ -4,6 +4,7 @@ class Osoba(models.Model):
     jmeno = models.CharField(max_length=45, verbose_name="Jméno", help_text="Zadejte jméno osoby")
     prijmeni = models.CharField(max_length=45, verbose_name="Přijmení", help_text="Zadejte příjmení")
     reputace = models.CharField(max_length=10, verbose_name="Reputatace", help_text="Zadejte reputaci")
+    fotka = models.ImageField(upload_to="osoba", verbose_name="Fotka osoby", help_text="Nahrejte fotku osoby", default="none")
 
     class Meta:
         verbose_name = 'Osoba'
@@ -36,8 +37,8 @@ class Najemnik(models.Model):
             return self.osoba
 
 class Nemovitost(models.Model):
-    BYT = "BYT"
-    DUM = "DŮM"
+    BYT = "Byt"
+    DUM = "Dům"
     TYP_CHOICES = [
         (BYT, "byt"),
         (DUM, "dům"),
